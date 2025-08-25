@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,14 @@
 <body>
     <h1>Add Concert</h1>
     <!-- add form for adding concert-->
-
+    <form th:action="@{/concerts}" th:object="${concert}" method="post">
+    Title: <input type="text" th:field="*{title}"/><br>
+    Performer: <input type="text" th:field="*{performer}"/><br>
+    Date: <input type="date" th:field="*{date}"/><br>
+    Description: <input type="text" th:field="*{description}"/><br>
+    <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="/concerts">Back to list</a>
 </body>
 </html>
